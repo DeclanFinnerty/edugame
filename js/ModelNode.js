@@ -72,24 +72,3 @@ ModelNode.prototype.GetDepth = function()
 {
     return this.depth;
 }
-
-/**
- * Used to test this class
- */
-ModelNode.prototype.Test = function()
-{
-    var child = new ModelNode("Leaf");
-    this.AddChild(child);
-
-    return this.listOfChildren[0].name;//child.name;
-}
-
-var parent = new ModelNode();
-parent.Setup("John", null, 0);
-var child = new ModelNode();
-child.Setup("Billy", null, 0);
-var x = new ModelNode();
-x.Setup("Terry", parent, 1);
-x.AddChild(child);
-
-alert(x.GetName() + x.GetDepth() + x.GetChildren()[0].GetName());
