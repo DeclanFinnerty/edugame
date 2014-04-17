@@ -18,7 +18,7 @@ function Render()
 /**
  * Sets up the canvas 
  */
-Render.prototype.SetupCanvas = function () 
+Render.prototype.SetupCanvas = function ()
 {
     console.log("Call: SetupCanvas()");
 
@@ -28,10 +28,16 @@ Render.prototype.SetupCanvas = function ()
     this.theCanvas.style = "border:1px solid #000000;";
     this.canvasContext = theCanvas.getContext("2d");
 
-    // Background rectangle
-    this.canvasContext.fillStyle = "#0000FF";
-    this.canvasContext.fillRect(0, 0, this.theCanvas.width, this.theCanvas.height);
+    this.SetupBackground();
+}
 
+/**
+ * Setup a background 
+ */
+Render.prototype.SetupBackground = function ()
+{
+    this.canvasContext.fillStyle = globalBackgroundColour;
+    this.canvasContext.fillRect(0, 0, this.theCanvas.width, this.theCanvas.height);
 }
 
 /**

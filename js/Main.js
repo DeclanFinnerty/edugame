@@ -3,9 +3,6 @@
  */
 
 
-//Basic globel varibles
-var ctx = null;
-var canvas = null;
 
 /**
  * First function called
@@ -16,6 +13,12 @@ function Main()
 
     //Initialize the Globals
     globalRender = new Render();
+
+    //Testing
+    testTile = new Tile();
+    testTile.Setup(100, 100, 100, 100, "#FFFF00", globalRender.getCanvasContext());
+    testTile.Draw();
+    testTile.Delete();
 }
 
 /**

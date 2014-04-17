@@ -12,6 +12,7 @@ function Tile()
     this.posX = null;
     this.posY = null;
     this.colour = null;
+    this.canvasContext = null;
 }
 
 
@@ -23,28 +24,44 @@ function Tile()
  * @param {Integer} Position on the y-axis
  * @param {String}  Colour
  */
-ModelNode.prototype.Setup = function (pWidth, pheight, pPosX, pPosY, pColour) 
+Tile.prototype.Setup = function ( pPosX, pPosY, pWidth, pheight, pColour, pCanvasContext ) 
 {
     this.width = pWidth;
     this.height = pheight;
     this.posX = pPosX;
     this.posY = pPosY;
     this.colour = pColour;
+    this.canvasContext = pCanvasContext
 }
 
 /**
  * Draws the tile
+ * @param {Context} CanvasContext
  */
-ModelNode.prototype.Draw = function (pCanvasContext) 
+Tile.prototype.Draw = function ()
 {
-    pCanvasContext.fillStyle = "#FF0000";
-    pCanvasContext.fillRectangle(0, 0, 150, 75);
+    this.canvasContext.fillStyle = this.colour;
+    this.canvasContext.fillRect(this.posX, this.posY, this.width, this.height);
+}
 
+/**
+* Deletes the tile by replacing it with the background colour
+* @param {Context} CanvasContext
+*/
+Tile.prototype.Delete = function ()
+{
+    this.canvasContext.fillStyle = globalBackgroundColour;
+    this.canvasContext.fillRect(this.posX, this.posY, this.width, this.height);
 }
 
 /**
  * Updates the tiles size, colour etc..
+ * @param {Integer} Width
+ * @param {Integer} Height
+ * @param {Integer} Position on the x-axis
+ * @param {Integer} Position on the y-axis
+ * @param {String}  Colour
  */
-ModelNode.prototype.Update  = function()
+Tile.prototype.Update = function (pPosX, pPosY, pWidth, pheight, pColour)
 {
 }
