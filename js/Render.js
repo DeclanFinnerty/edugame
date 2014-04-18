@@ -1,5 +1,5 @@
 /**
- * Created by Declan on 17/04/2014.
+ * Created by Declan Finnerty on 17/04/2014.
  */
 
 /**
@@ -9,8 +9,8 @@ function Render()
 {
     console.log("Call Render() Constructor");
 
-    this.theCanvas = null;
-    this.canvasContext = null;
+    this.mTheCanvas = null;
+    this.mCanvasContext = null;
 
     this.SetupCanvas();
 }
@@ -22,11 +22,11 @@ Render.prototype.SetupCanvas = function ()
 {
     console.log("Call: SetupCanvas()");
 
-    this.theCanvas = document.getElementById("theCanvas");
-    this.theCanvas.width = globalCanvasWidth;
-    this.theCanvas.height = globalCanvasHeight;
-    this.theCanvas.style = "border:1px solid #000000;";
-    this.canvasContext = theCanvas.getContext("2d");
+    this.mTheCanvas = document.getElementById("theCanvas");
+    this.mTheCanvas.width = globalCanvasWidth;
+    this.mTheCanvas.height = globalCanvasHeight;
+    this.mTheCanvas.style = "border:1px solid #000000;";
+    this.mCanvasContext = theCanvas.getContext("2d");
 
     this.SetupBackground();
 }
@@ -36,8 +36,8 @@ Render.prototype.SetupCanvas = function ()
  */
 Render.prototype.SetupBackground = function ()
 {
-    this.canvasContext.fillStyle = globalBackgroundColour;
-    this.canvasContext.fillRect(0, 0, this.theCanvas.width, this.theCanvas.height);
+    this.mCanvasContext.fillStyle = globalBackgroundColour;
+    this.mCanvasContext.fillRect(0, 0, this.mTheCanvas.width, this.mTheCanvas.height);
 }
 
 /**
@@ -45,7 +45,7 @@ Render.prototype.SetupBackground = function ()
 */
 Render.prototype.getCanvas = function () 
 {
-    return this.theCanvas;
+    return this.mTheCanvas;
 }
 
 /**
@@ -53,5 +53,5 @@ Render.prototype.getCanvas = function ()
 */
 Render.prototype.getCanvasContext = function ()
 {
-    return this.canvasContext;
+    return this.mCanvasContext;
 }

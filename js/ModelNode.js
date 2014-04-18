@@ -1,5 +1,5 @@
 /**
- * Created by Declan on 15/04/2014.
+ * Created by Declan Finnerty on 15/04/2014.
  */
 
 /**
@@ -7,10 +7,10 @@
  */
 function ModelNode()
 {
-    this.name = null;
-    this.listOfChildren = new Array();
-    this.parent = null;
-    this.depth = null; // this can be used to distinguish between Areas, LOs, etc ...
+    this.mName = null;
+    this.mListOfChildren = new Array();
+    this.mParent = null;
+    this.mDepth = null; // this can be used to distinguish between Areas, LOs, etc ...
 }
 
 
@@ -22,9 +22,9 @@ function ModelNode()
  */
 ModelNode.prototype.Setup = function(pName, pParent, pDepth)
 {
-    this.parent = pParent;
-    this.name = pName;
-    this.depth = pDepth;
+    this.mParent = pParent;
+    this.mName = pName;
+    this.mDepth = pDepth;
 }
 
 /**
@@ -33,7 +33,7 @@ ModelNode.prototype.Setup = function(pName, pParent, pDepth)
  */
 ModelNode.prototype.AddChild = function(pChild)
 {
-    this.listOfChildren.push(pChild);
+    this.mListOfChildren.push(pChild);
 }
 
 /**
@@ -42,7 +42,7 @@ ModelNode.prototype.AddChild = function(pChild)
  */
 ModelNode.prototype.GetChildren  = function()
 {
-    return this.listOfChildren;
+    return this.mListOfChildren;
 }
 
 /**
@@ -51,7 +51,7 @@ ModelNode.prototype.GetChildren  = function()
  */
 ModelNode.prototype.GetParent = function()
 {
-    return this.parent;
+    return this.mParent;
 }
 
 /**
@@ -60,7 +60,7 @@ ModelNode.prototype.GetParent = function()
  */
 ModelNode.prototype.GetName = function()
 {
-    return this.name;
+    return this.mName;
 }
 
 
@@ -70,5 +70,5 @@ ModelNode.prototype.GetName = function()
  */
 ModelNode.prototype.GetDepth = function()
 {
-    return this.depth;
+    return this.mDepth;
 }

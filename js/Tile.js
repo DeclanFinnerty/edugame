@@ -1,5 +1,5 @@
 /**
- * Created by Declan on 17/04/2014.
+ * Created by Declan Finnerty on 17/04/2014.
  */
 
 /**
@@ -7,12 +7,12 @@
  */
 function Tile() 
 {
-    this.width = null;
-    this.height = null;
-    this.posX = null;
-    this.posY = null;
-    this.colour = null;
-    this.canvasContext = null;
+    this.mWidth = null;
+    this.mHeight = null;
+    this.mPosX = null;
+    this.mPosY = null;
+    this.mColour = null;
+    this.mCanvasContext = null;
 }
 
 
@@ -26,32 +26,30 @@ function Tile()
  */
 Tile.prototype.Setup = function ( pPosX, pPosY, pWidth, pheight, pColour, pCanvasContext ) 
 {
-    this.width = pWidth;
-    this.height = pheight;
-    this.posX = pPosX;
-    this.posY = pPosY;
-    this.colour = pColour;
-    this.canvasContext = pCanvasContext
+    this.mWidth = pWidth;
+    this.mHeight = pheight;
+    this.mPosX = pPosX;
+    this.mPosY = pPosY;
+    this.mColour = pColour;
+    this.mCanvasContext = pCanvasContext
 }
 
 /**
  * Draws the tile
- * @param {Context} CanvasContext
  */
 Tile.prototype.Draw = function ()
 {
-    this.canvasContext.fillStyle = this.colour;
-    this.canvasContext.fillRect(this.posX, this.posY, this.width, this.height);
+    this.mCanvasContext.fillStyle = this.mColour;
+    this.mCanvasContext.fillRect(this.mPosX, this.mPosY, this.mWidth, this.mHeight);
 }
 
 /**
 * Deletes the tile by replacing it with the background colour
-* @param {Context} CanvasContext
 */
 Tile.prototype.Delete = function ()
 {
-    this.canvasContext.fillStyle = globalBackgroundColour;
-    this.canvasContext.fillRect(this.posX, this.posY, this.width, this.height);
+    this.mCanvasContext.fillStyle = globalBackgroundColour;
+    this.mCanvasContext.fillRect(this.mPosX, this.mPosY, this.mWidth, this.mHeight);
 }
 
 /**
