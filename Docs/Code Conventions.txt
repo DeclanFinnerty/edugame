@@ -1,0 +1,5 @@
+Go to the following page to read the code conventions:
+http://javascript.crockford.com/code.html
+
+Also,
+We are using jsdoc for documentation, so please add comments that work with jsdoc.
