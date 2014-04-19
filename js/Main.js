@@ -1,38 +1,39 @@
 /**
- * Created by Declan Finnerty on 17/04/2014.
- */
+* Created by Declan Finnerty on 17/04/2014.
+*/
 
 
 
 /**
- * First function called
- */
-function Main() 
-{
-    console.log("Call: Main");
+* First function called
+*/
+function main() {
+    console.log("Call: main()");
 
-    //Initialize the Globals
-    globalRender = new Render();
 
-    //Testing
-    testTile = new Tile();
-    testTile.Setup(100, 100, 100, 100, "#FFFF00", globalRender.getCanvasContext());
-    testTile.Draw();
-    testTile.Delete();
+    //TESTING
+    //test ModelGraphManager
+    var testModelGraphManager = new ModelGraphManager();
+    testModelGraphManager.setupTestGraph();
+    var currentNode = testModelGraphManager.getCurrentNode();
+    
+    //Test TileManager
+    var myVisuals = new Visuals();
+    var ctx = myVisuals.getCanvasContext();
+    var testTileManager = new TileManager(ctx, currentNode);
+    testTileManager.draw();
 }
 
 /**
 * Update function; anything that needs 
 * to be updated should be called here
 */
-function Update() 
-{
+function update() {
 }
 
 /**
 * Draw function; anything that needs to be drawn
 * to the canvas should be called here
 */
-function Draw()
-{
+function draw() {
 }

@@ -1,44 +1,41 @@
 /**
- * Created by Declan Finnerty on 17/04/2014.
- */
+* Created by Declan Finnerty on 17/04/2014.
+*/
 
 /**
- * A Tile will visualy represent a node in the modelGraph
- */
-function Tile() 
-{
-    this.mWidth = null;
-    this.mHeight = null;
-    this.mPosX = null;
-    this.mPosY = null;
-    this.mColour = null;
-    this.mCanvasContext = null;
-}
-
-
-/**
- * Sets up this object for use
- * @param {Integer} Width
- * @param {Integer} Height
- * @param {Integer} Position on the x-axis
- * @param {Integer} Position on the y-axis
- * @param {String}  Colour
- */
-Tile.prototype.Setup = function ( pPosX, pPosY, pWidth, pheight, pColour, pCanvasContext ) 
-{
+* A Tile will visualy represent a node in the modelGraph
+* @constructor
+* @param {Integer} pPosX
+* @param {Integer} pPosY
+* @param {Integer} pWidth
+* @param {Integer} pheight
+* @param {String}  pColour
+* @param {Context} pCanvasContext
+*/
+function Tile(pPosX, pPosY, pWidth, pHeight, pColour, pCanvasContext) {
     this.mWidth = pWidth;
-    this.mHeight = pheight;
+    this.mHeight = pHeight;
     this.mPosX = pPosX;
     this.mPosY = pPosY;
     this.mColour = pColour;
-    this.mCanvasContext = pCanvasContext
+    this.mCanvasContext = pCanvasContext;
+
+}
+
+
+/**
+* Sets up this object for use
+*/
+Tile.prototype.setup = function () {
+
 }
 
 /**
- * Draws the tile
- */
-Tile.prototype.Draw = function ()
-{
+* Draws the tile
+*/
+Tile.prototype.draw = function () {
+    console.log("Call: Tile.draw()");
+    
     this.mCanvasContext.fillStyle = this.mColour;
     this.mCanvasContext.fillRect(this.mPosX, this.mPosY, this.mWidth, this.mHeight);
 }
@@ -46,20 +43,18 @@ Tile.prototype.Draw = function ()
 /**
 * Deletes the tile by replacing it with the background colour
 */
-Tile.prototype.Delete = function ()
-{
-    this.mCanvasContext.fillStyle = globalBackgroundColour;
+Tile.prototype.deleteTile = function () {
+    this.mCanvasContext.fillStyle = GLOBAL_CANVAS_BACKGROUND_COLOUR;
     this.mCanvasContext.fillRect(this.mPosX, this.mPosY, this.mWidth, this.mHeight);
 }
 
 /**
- * Updates the tiles size, colour etc..
- * @param {Integer} Width
- * @param {Integer} Height
- * @param {Integer} Position on the x-axis
- * @param {Integer} Position on the y-axis
- * @param {String}  Colour
- */
-Tile.prototype.Update = function (pPosX, pPosY, pWidth, pheight, pColour)
-{
+* Updates the tiles size, colour etc..
+* @param {Integer} Width
+* @param {Integer} Height
+* @param {Integer} Position on the x-axis
+* @param {Integer} Position on the y-axis
+* @param {String}  Colour
+*/
+Tile.prototype.update = function (pPosX, pPosY, pWidth, pheight, pColour) {
 }

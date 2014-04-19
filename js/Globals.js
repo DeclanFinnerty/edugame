@@ -5,8 +5,6 @@
 /**
  * The Globals
  */
-
-var globalRender = null;
-var globalCanvasWidth = 500;
-var globalCanvasHeight = 500;
-var globalBackgroundColour = "#0000FF";
+var GLOBAL_CANVAS_WIDTH = 500;
+var GLOBAL_CANVAS_HEIGHT = 500;
+var GLOBAL_CANVAS_BACKGROUND_COLOUR = "#0000FF";
