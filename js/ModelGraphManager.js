@@ -54,32 +54,29 @@ ModelGraphManager.prototype.getCurrentChildren = function () {
 * gives the root 3 children
 */
 ModelGraphManager.prototype.setupTestGraph = function () {
-    this.mModelRoot = new ModelNode();
-
-    //Test children to be added to the root
-    var child0 = new ModelNode("child0", this.mModelRoot, 1);
-    var child1 = new ModelNode("child1", this.mModelRoot, 1);
-    var child2 = new ModelNode("child2", this.mModelRoot, 1);
-
-    this.mModelRoot.addChild(child0);
-    this.mModelRoot.addChild(child1);
-    this.mModelRoot.addChild(child2);
-
-    //Test grandchildren to be added to the root
-    var grandchild0 = new ModelNode("grandchild0", this.mModelRoot, 1);
-    var grandchild1 = new ModelNode("grandchild1", this.mModelRoot, 1);
-    var grandchild2 = new ModelNode("grandchild2", this.mModelRoot, 1);
-    var grandchild3 = new ModelNode("grandchild3", this.mModelRoot, 1);
-    var grandchild4 = new ModelNode("grandchild4", this.mModelRoot, 1);
-    var grandchild5 = new ModelNode("grandchild5", this.mModelRoot, 1);
-
-    child0.addChild(grandchild0);       //child0 has 3 childran
-    child0.addChild(grandchild1);
-    child0.addChild(grandchild2);
-    child1.addChild(grandchild3);       //child1 has 1 childran
-    child2.addChild(grandchild4);       //child2 has 2 childran
-    child2.addChild(grandchild5);
+    this.mModelRoot = new ModelNode("root", null, 0);
+    
+    //Test User Accounts to be added to the root
+    var userAccount0 = new ModelNode("userAccount0", this.mModelRoot, 1);
+    var userAccount1 = new ModelNode("userAccount1", this.mModelRoot, 1);
+    var userAccount2 = new ModelNode("userAccount2", this.mModelRoot, 1);
+    
+    //Test Models to be added to the user acounts
+    var model0 = new ModelNode("model0", userAccount0, 2);
+    var model1 = new ModelNode("model1", userAccount0, 2);
+    var model2 = new ModelNode("model2", userAccount0, 2);
+    var model3 = new ModelNode("model3", userAccount1, 2);
+    var model4 = new ModelNode("model4", userAccount2, 2);
+    var model5 = new ModelNode("model5", userAccount2, 2);
 
 
-    this.mCurrentNode = this.mModelRoot;
+    //Test Areas to be added to the models
+    var area0 = new ModelNode("area0", model0, 3);
+    var area1 = new ModelNode("area1", model0, 3);
+    var area2 = new ModelNode("area2", model0, 3);
+    var area3 = new ModelNode("area3", model1, 3);
+    var area4 = new ModelNode("area4", model2, 3);
+    var area5 = new ModelNode("area5", model2, 3);
+
+    this.mCurrentNode = userAccount0;
 }

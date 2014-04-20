@@ -6,15 +6,17 @@
 * TileManager mantains and manages a list of the tiles being displayed.
 * @constructor
 * @param {Context} pCanvasContext
+* @param {ModelNode} pCurrentModelNode
 */
-function TileManager(pCanvasContext, pCurrentNode) {
+function TileManager(pCanvasContext, pCurrentModelNode) {
     this.mCanvasContext = pCanvasContext;
-    this.mTiles = new Array();
+    this.mTiles = [];
     this.mTileWidth = 10;
     this.mTileHeight = 10;
     this.mDistBetweenTiles = 5;
+    this.mCurrentModelNode = pCurrentModelNode;
 
-    this.setupTiles(pCurrentNode);
+    this.setupTiles();
 }
 
 
@@ -22,13 +24,14 @@ function TileManager(pCanvasContext, pCurrentNode) {
 * setupTiles
 * Sets up the tiles with information from the graph 
 */
-TileManager.prototype.setupTiles = function (pCurrentNode) {
+TileManager.prototype.setupTiles = function () {
+    console.log("Call: setupTiles()")
     var posX;
     var posY;
     var width;
     var height;
     var colour = "#000000";
-    var children = pCurrentNode.getChildren();
+    var children = this.mCurrentModelNode.getChildren();
     var combinedWidth = 0;                          // the comdined width of the tiles including space between them
 
     for (var i = 0; i < children.length; i++) {

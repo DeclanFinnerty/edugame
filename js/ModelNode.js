@@ -7,27 +7,17 @@
 * @constructor
 */
 function ModelNode(pName, pParent, pDepth) {
-    this.mName = null;
-    this.mListOfChildren = new Array();
-    this.mParent = null;
-    this.mDepth = null;                        // this can be used to distinguish between Areas, LOs, etc ...
+    this.mName = pName;
+    this.mListOfChildren = [];
+    this.mParent = pParent;
+    this.mDepth = pDepth;                        // this can be used to distinguish between Areas, LOs, etc ...
     this.mNumberOfChildren = 0;
 
-    this.setup(pName, pParent, pDepth);
+    if (this.mParent != null) {
+        this.mParent.addChild(this);               // Attach this node to its parrent
+    }
 }
 
-
-/**
-* Sets up this object for use
-* @param {String} The Name of the node
-* @param {ModelNode} The Parent node
-* @param {ModelNode} The depth the node is in the graph
-*/
-ModelNode.prototype.setup = function (pName, pParent, pDepth) {
-    this.mParent = pParent;
-    this.mName = pName;
-    this.mDepth = pDepth;
-}
 
 /**
 * Adds a child to this node

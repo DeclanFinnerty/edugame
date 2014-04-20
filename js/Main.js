@@ -11,17 +11,24 @@ function main() {
     console.log("Call: main()");
 
 
-    //TESTING
-    //test ModelGraphManager
+    //TESTING //////////////////////////////////////////////////////
+
+    //Test ModelGraphManager
     var testModelGraphManager = new ModelGraphManager();
     testModelGraphManager.setupTestGraph();
     var currentNode = testModelGraphManager.getCurrentNode();
-    
+       
     //Test TileManager
-    var myVisuals = new Visuals();
-    var ctx = myVisuals.getCanvasContext();
+    var testVisuals = new Visuals();
+    var ctx = testVisuals.getCanvasContext();
     var testTileManager = new TileManager(ctx, currentNode);
     testTileManager.draw();
+
+    //Test ButtonManager
+    var testButtonManager = new ButtonManager(currentNode);
+    testButtonManager.setupForTesting();
+
+    /////////////////////////////////////////////////////////////////
 }
 
 /**
